@@ -48,7 +48,6 @@ public class Bot extends PircBot {
 	private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
 	private static HttpTransport HTTP_TRANSPORT;
 	private static final List<String> SCOPES =Arrays.asList(SheetsScopes.SPREADSHEETS);
-
 	static ArrayList<String> queue = new ArrayList<String>();
 	static ArrayList<Double> queue2 = new ArrayList<Double>();
 	static ArrayList<String> sfxcooldown = new ArrayList<String>();

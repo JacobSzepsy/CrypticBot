@@ -121,5 +121,4 @@ public class BotMain
         rate*=60000;
 		time.scheduleAtFixedRate(new PointsGoogle(), rate, rate);
     }
-    
 }
