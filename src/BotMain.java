@@ -59,7 +59,7 @@ public class BotMain
     public static Credential authorize() throws IOException {
         // Load client secrets.
     	//TODO work on getting this and the credentials stored inside the jar or created in an encapsulating folder
-    	InputStream in = new FileInputStream("F:\\Code\\Java\\CircuitBot\\client_secret.json");
+    	InputStream in = new FileInputStream("F:\\Code\\Java\\CrypticBot\\client_secret.json");
         GoogleClientSecrets clientSecrets =
             GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
