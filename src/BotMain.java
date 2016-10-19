@@ -88,7 +88,6 @@ public class BotMain
                 .setApplicationName(APPLICATION_NAME)
                 .build();
     }
-
 	
     public static void main(String[] args) throws Exception {
     	Sheets service = null;

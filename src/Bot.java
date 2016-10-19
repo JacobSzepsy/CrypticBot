@@ -30,7 +30,6 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.sheets.v4.Sheets;
 import com.google.api.services.sheets.v4.SheetsScopes;
-import com.google.api.services.sheets.v4.Sheets.Spreadsheets.Values;
 import com.google.api.services.sheets.v4.model.ValueRange;
 
 
@@ -92,7 +91,7 @@ public class Bot extends PircBot {
 			System.exit(1);
 		}
 	}
-
+	
 	public static Credential authorize() throws IOException {
 		InputStream in = new FileInputStream("F:\\Code\\Java\\CrypticBot\\client_secret.json");
 		GoogleClientSecrets clientSecrets =
