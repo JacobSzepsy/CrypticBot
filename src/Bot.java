@@ -32,7 +32,7 @@ import com.google.api.services.sheets.v4.Sheets;
 import com.google.api.services.sheets.v4.SheetsScopes;
 import com.google.api.services.sheets.v4.model.ValueRange;
 
-
+//TODO add commands with different output based on a predetermined factor for the user?
 //TODO increase speed
 //TODO audio files can be mp3
 //TODO fix volumes for audio clips (individual volume sliders?)
