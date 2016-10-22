@@ -93,7 +93,7 @@ public class Bot extends PircBot {
 	
 	
 	public static Credential authorize() throws IOException {
-		InputStream in = new FileInputStream("F:\\Code\\Java\\CrypticBot\\client_secret.json");
+		InputStream in = Bot.class.getResourceAsStream("/client_secret.json");
 		GoogleClientSecrets clientSecrets =
 				GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
