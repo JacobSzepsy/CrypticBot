@@ -51,7 +51,7 @@ public class PointsGoogle extends TimerTask{
      */
     private static final List<String> SCOPES =
         Arrays.asList(SheetsScopes.SPREADSHEETS);
-
+    String id = BotMain.id;
     static {
         try {
             HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
@@ -122,7 +122,7 @@ public class PointsGoogle extends TimerTask{
 		ValueRange response3 = null;
 		try {
 			service = getSheetsService();
-			spreadsheetId = "1grtrxoU19NGYNUle31I0CE8H6tst6pBe1Sf7Iw-Ev8E";
+			spreadsheetId = id;
 			range = "Users!A2:E";
 			response = service.spreadsheets().values()
 			    .get(spreadsheetId, range)

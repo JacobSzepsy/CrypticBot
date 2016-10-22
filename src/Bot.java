@@ -68,11 +68,13 @@ public class Bot extends PircBot {
 	final long start = System.currentTimeMillis();
 	static Timer timer;
 	static boolean first;
+	String id;
 	
 	
-	public Bot(String botname)
+	public Bot(String botname, String sid)
 	{
 		this.setName(botname);
+		id = sid;
 
 	}
 
@@ -94,6 +96,7 @@ public class Bot extends PircBot {
 	
 	public static Credential authorize() throws IOException {
 		InputStream in = Bot.class.getResourceAsStream("/client_secret.json");
+		//InputStream in = new FileInputStream("F:\\Code\\Java\\CrypticBot\\client_secret.json");
 		GoogleClientSecrets clientSecrets =
 				GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
@@ -234,7 +237,7 @@ public class Bot extends PircBot {
 			ValueRange response3 = null;
 			try {
 				service = getSheetsService();
-				spreadsheetId = "1grtrxoU19NGYNUle31I0CE8H6tst6pBe1Sf7Iw-Ev8E";
+				spreadsheetId = id;
 				range = "sfx!A2:H";
 				response = service.spreadsheets().values()
 						.get(spreadsheetId, range)
@@ -350,7 +353,7 @@ public class Bot extends PircBot {
 		if (!frstmsg.contains(sender))
 		{
 			Sheets service = null;
-			String spreadsheetId = "1grtrxoU19NGYNUle31I0CE8H6tst6pBe1Sf7Iw-Ev8E";
+			String spreadsheetId = id;
 			ValueRange response1 = null;
 			ValueRange response2 = null;
 			try {
@@ -466,7 +469,7 @@ public class Bot extends PircBot {
 					ValueRange response2 = null;
 					try {
 						service = getSheetsService();
-						spreadsheetId = "1grtrxoU19NGYNUle31I0CE8H6tst6pBe1Sf7Iw-Ev8E";
+						spreadsheetId = id;
 						range = "Users!A2:E";
 						response = service.spreadsheets().values()
 								.get(spreadsheetId, range)
@@ -545,7 +548,7 @@ public class Bot extends PircBot {
 					ValueRange response2 = null;
 					try {
 						service = getSheetsService();
-						spreadsheetId = "1grtrxoU19NGYNUle31I0CE8H6tst6pBe1Sf7Iw-Ev8E";
+						spreadsheetId = id;
 						range = "Users!A2:E";
 						response = service.spreadsheets().values()
 								.get(spreadsheetId, range)
@@ -630,7 +633,7 @@ public class Bot extends PircBot {
 					ValueRange response2 = null;
 					try {
 						service = getSheetsService();
-						spreadsheetId = "1grtrxoU19NGYNUle31I0CE8H6tst6pBe1Sf7Iw-Ev8E";
+						spreadsheetId = id;
 						range = "Users!A2:E";
 						response = service.spreadsheets().values()
 								.get(spreadsheetId, range)
@@ -792,7 +795,7 @@ public class Bot extends PircBot {
 				ValueRange response2 = null;
 				try {
 					service = getSheetsService();
-					spreadsheetId = "1grtrxoU19NGYNUle31I0CE8H6tst6pBe1Sf7Iw-Ev8E";
+					spreadsheetId = id;
 					range = "Users!A2:E";
 					response = service.spreadsheets().values()
 							.get(spreadsheetId, range)

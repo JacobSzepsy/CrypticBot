@@ -40,7 +40,7 @@ public class BotMain
      */
     private static final List<String> SCOPES =
         Arrays.asList(SheetsScopes.SPREADSHEETS);
-
+    static String oauth, id;
     static {
         try {
             HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
@@ -51,6 +51,16 @@ public class BotMain
         }
     }
 
+    public BotMain(String token, String sid){
+    	oauth = token;
+    	id = sid; //1grtrxoU19NGYNUle31I0CE8H6tst6pBe1Sf7Iw-Ev8E
+    	try {
+			run();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+    
     /**
      * Creates an authorized Credential object.
      * @return an authorized Credential object.
@@ -89,14 +99,14 @@ public class BotMain
                 .build();
     }
 	
-    public static void main(String[] args) throws Exception {
+    public void run() throws Exception {
     	Sheets service = null;
 		String spreadsheetId = null;
 		String range = null;
 		ValueRange response = null;
 		try {
 			service = getSheetsService();
-			spreadsheetId = "1grtrxoU19NGYNUle31I0CE8H6tst6pBe1Sf7Iw-Ev8E";
+			spreadsheetId = id;
 			range = "Settings!A2:G2";
 			response = service.spreadsheets().values()
 			    .get(spreadsheetId, range)
@@ -107,9 +117,9 @@ public class BotMain
 			e1.printStackTrace();
 		}
         List<Object> values = response.getValues().get(0);
-        Bot bot = new Bot(values.get(0).toString());
+        Bot bot = new Bot(values.get(0).toString(), id);
         bot.setVerbose(true);
-        bot.connect("irc.twitch.tv", 6667, values.get(1).toString());
+        bot.connect("irc.twitch.tv", 6667, oauth);
         //bot.sendRawLine("CAP REQ :twitch.tv/commands");
         bot.sendRawLine("CAP REQ :twitch.tv/membership");
         bot.sendRawLine("CAP REQ :twitch.tv/commands");
@@ -121,4 +131,5 @@ public class BotMain
         rate*=60000;
 		time.scheduleAtFixedRate(new PointsGoogle(), rate, rate);
     }
+
 }
